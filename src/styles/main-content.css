@@ -5,7 +5,7 @@
     margin-right: 56px;
 }
 
-.header-navigation {
+.header__navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,13 +16,13 @@
     padding: 12px;
 }
 
-.header-navigation .navigation {
+.header__navigation .navigation {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.header-navigation .navigation .arrow-left {
+.header__navigation .navigation .arrow-left {
     margin-right: 1.25rem;
 }
 
@@ -40,12 +40,12 @@
     cursor: pointer;
 }
 
-.header-login {
+.header__login {
     display: flex;
     align-items: center;
 }
 
-.header-search {
+.header__search {
     display: flex;
     align-items: center;
     width: 364px;
@@ -56,13 +56,13 @@
     border: 1px solid transparent;
 }
 
-.header-search img {
+.header__search img {
     width: 16px;
     height: 16px;
     margin-left: 10px;
 }
 
-.header-search input {
+.header__search input {
     background: transparent;
     border: none;
     padding: 0px 100px 0 12px;
@@ -73,7 +73,7 @@
     outline: none;
 }
 
-.header-login .subscribe {
+.header__login .subscribe {
     color: #a7a7a7;
     font-size: 16px;
     font-weight: 700;
@@ -81,7 +81,7 @@
     margin-right: 32px;
 }
 
-.header-login .login {
+.header__login .login {
     width: 100px;
     height: 48px;
     color: #000;
@@ -115,21 +115,21 @@
     font-weight: 700;
 }
 
-.offer-scroll-container {
+.offer__scroll-container {
     max-height: 43vh;
     margin: 24px;
     overflow-y: auto;
 }
 
-.offer-scroll-container::-webkit-scrollbar {
+.offer__scroll-container::-webkit-scrollbar {
     width: 1px;
 }
 
-.offer-scroll-container::-webkit-scrollbar-thumb {
+.offer__scroll-container::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
 
-.offer-list-item {
+.offer__list-item {
     display: grid;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -219,7 +219,7 @@
     background: rgb(60, 30, 80);
 }
 
-.offer-list-item img {
+.offer__list-item img {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -254,7 +254,10 @@
     padding: 16px;
     position: relative;
     transition: background-color 0.3s ease;
-    width: 100%;
+    width: 200px;
+    margin: 16px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .artist-card:hover {
@@ -296,6 +299,7 @@
 .artist-name {
     box-sizing: border-box;
     margin-block: 0px;
+    color: #fff;
     font-size: 16px;
     font-weight: 700;
     padding-block-end: 8px;
