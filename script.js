@@ -1,6 +1,9 @@
 const searchInput = document.getElementById('search-input');
 const resultArtist = document.getElementById("result-artist");
 const resultPlaylist = document.getElementById('result-playlists');
+const mobileBtn = document.querySelector('.mobile-btn');
+const library = document.querySelector('.library');
+const navLinks = document.querySelector('.nav-links');
 
 function requestApi(searchTerm) {
     const url = `http://localhost:3000/artists?name_like=${searchTerm}`;
@@ -16,27 +19,26 @@ function displayResults(result, searchTerm) {
 
     const filteredArtists = result.filter(artist => artist.name.toLowerCase().includes(searchTerm) );
 
+    filteredArtists.forEach(artist => {    
+        const artistCard = document.createElement('div');
+        artistCard.classList.add('artist-card');
 
-  filteredArtists.forEach(artist => {    
-      const artistCard = document.createElement('div');
-      artistCard.classList.add('artist-card');
+        artistCard.innerHTML = `
+            <div class="card-img">
+                <img class="artist-img" src="${artist.urlImg}" />
+                <div class="play">
+                    <span class="fa fa-solid fa-play"></span>
+                </div>
+            </div>
+        <div class="card-text">              
+                <span class="artist-name">${artist.name}</span>
+                <span class="artist-categorie">Artista</span>
+            </div>
+        `;
+        gridContainer.appendChild(artistCard);
+    });
 
-      artistCard.innerHTML = `
-          <div class="card-img">
-              <img class="artist-img" src="${artist.urlImg}" />
-              <div class="play">
-                  <span class="fa fa-solid fa-play"></span>
-              </div>
-          </div>
-      <div class="card-text">              
-              <span class="artist-name">${artist.name}</span>
-              <span class="artist-categorie">Artista</span>
-          </div>
-      `;
-       gridContainer.appendChild(artistCard);
-  });
-
-  resultArtist.classList.remove('hidden');
+    resultArtist.classList.remove('hidden');
 }
 
 document.addEventListener('input', function () {
@@ -49,4 +51,9 @@ document.addEventListener('input', function () {
     }
 
     requestApi(searchTerm);
+});
+
+mobileBtn.addEventListener('click', () => {
+    library.classList.toggle('active');
+    navLinks.classList.toggle('active');
 });
